@@ -1,4 +1,4 @@
-FROM node:15-alpine AS build
+FROM i386/node:10-alpine AS build
 
 COPY . /app
 
@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN npm i --only=prod
 
-FROM node:15-alpine
+FROM i386/node:10-alpine
 
 COPY --from=build /app /app
 
